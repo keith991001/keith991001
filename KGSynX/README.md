@@ -1,13 +1,16 @@
-# KGSynX: Knowledge Graph and Explainable Feedback Guided LLMs for Synthetic Tabular Data Generation
+# KGSynX
 
-This repository contains code, data structure, and experiment scripts for our ISWC submission **KGSynX**, a framework for synthetic tabular data generation guided by knowledge graphs and SHAP-based feedback refinement.
+KGSynX is a Knowledge Graph and SHAP-guided synthetic tabular data generation framework. This repository contains core modules to construct knowledge graphs, train embeddings, generate LLM-based synthetic data, and refine generations iteratively based on SHAP explanations.
 
-## Directory Structure
+## Folder Structure
 
-- `data/`: Placeholder for raw and synthetic datasets.
-- `src/`: Core implementation of KGSynX (data loading, KG construction, generation, SHAP refinement).
-- `notebooks/`: Jupyter notebooks for exploratory analysis and pipeline demonstrations.
-- `results/`: Output from experiments, including figures and logs.
+- `load_data.py`: Load and preprocess real datasets (e.g., UCI Heart Disease).
+- `build_kg.py`: Construct patient-level knowledge graph from labeled tabular data.
+- `embedding.py`: Learn node embeddings using Node2Vec.
+- `train_and_shap.py`: Train classifiers and compute SHAP explanations.
+- `refinement_loop.py`: Iteratively generate synthetic data with feedback loop.
+- `utils.py`: Common utility functions (e.g., validation, similarity computation).
+- `main.py`: End-to-end pipeline to run KGSynX on UCI Heart Disease dataset.
 
 ## Setup
 
@@ -15,6 +18,35 @@ This repository contains code, data structure, and experiment scripts for our IS
 pip install -r requirements.txt
 ```
 
-## License
+Required packages include:
+- `pandas`, `scikit-learn`, `networkx`
+- `gensim`, `matplotlib`, `shap`, `openai`
 
-This project is licensed under the MIT License.
+## Usage
+
+You can run the full pipeline using:
+
+```bash
+python main.py
+```
+
+This will:
+1. Load and preprocess the dataset.
+2. Build the knowledge graph.
+3. Compute node embeddings.
+4. Generate synthetic samples using GPT-based model.
+5. Refine generations based on SHAP feedback until convergence.
+
+## Notes
+
+- This version uses OpenAI GPT API for text generation. You must configure your API key via environment variables or securely within your workflow.
+- Sample outputs and synthetic datasets are saved to `./outputs`.
+
+## Citation
+
+If you use this code in your research, please cite our paper:
+
+> [Paper Title]  
+> [Authors]  
+> [ISWC 2025, under review]
+
