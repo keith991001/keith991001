@@ -15,7 +15,6 @@
 
 📫 想找我聊聊：**keith991001@gmail.com**
 
----
 
 I thought I'd studied computer science for years — until I recently realized I don't actually understand computers at all.
 
@@ -31,3 +30,5 @@ I also thought I'd been gaming for years. This one, after rigorous verification,
 🤔 These days I'm seriously thinking about my future: which country to live in, what kind of work to do, and other big life questions.
 
 📫 Reach me at: **keith991001@gmail.com**
+
+![banner](f3d57b15c72b48415c0b0ea59592bc.jpg)
